@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canciones JA - Iglesia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        jaAzul: '#005792',
+                        jaAmarillo: '#FED100',
+                        oscuro: '#121212',
+                        suave: '#2A2A2A',
+                        texto: '#F8F9FA'
+                    },
+                    fontFamily: {
+                        elegante: ['"Montserrat"', 'sans-serif'],
+                        lectura: ['"Merriweather"', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .texto-sombra { text-shadow: 2px 2px 4px rgba(0,0,0,0.8); }
+            .pantalla { @apply w-screen h-screen flex-col items-center justify-center text-center text-texto hidden; }
+            .activa { @apply flex; }
+            .btn { @apply px-6 py-3 m-2 rounded-lg font-elegante font-bold transition-all duration-300 hover:scale-105; }
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-oscuro to-suave min-h-screen overflow-hidden">
+
+    <!-- Barra superior: Logos a la izquierda y texto a la derecha -->
+    <div class="absolute top-0 left-0 w-full flex justify-between items-center p-6 z-50">
+        <!-- Contenedor de ambos logos -->
+        <div class="flex items-center gap-4">
+            <img src="images/ja-logo.png" 
+                 alt="Logo JA" 
+                 class="w-24 h-auto">
+            <img src="images/conquistadores-logo.png" 
+                 alt="Logo Conquistadores" 
+                 class="w-16 h-auto">
+        </div>
+             
+        <span class="text-jaAmarillo text-2xl font-elegante font-bold texto-sombra">IASD Ypané 2026</span>
+    </div>
+
+
+    <!-- ====================================== -->
+    <!-- PANTALLA 0: MENÚ PRINCIPAL (2 COLUMNAS) -->
+    <!-- ====================================== -->
+    <div id="menu" class="pantalla activa px-4">
+        <h1 class="text-[clamp(2.5rem,5vw,4.5rem)] font-elegante font-extrabold text-jaAmarillo mb-8 texto-sombra">🎶 Canciones JA 🎶</h1>
+        
+        <!-- Grid de 2 columnas -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-4xl px-4">
+            <!-- Primera columna: 1 al 4 -->
+            <div class="flex flex-col gap-2">
+                <button onclick="ir('agnus1')" class="btn bg-jaAzul/80 hover:bg-jaAzul text-white text-xl md:text-2xl">1. Agnus Dei 🙏</button>
+                <button onclick="ir('maranatha1')" class="btn bg-jaAzul/80 hover:bg-jaAzul text-white text-xl md:text-2xl">2. Maranatha 🕊️</button>
+                <button onclick="ir('vere1')" class="btn bg-jaAzul/80 hover:bg-jaAzul text-white text-xl md:text-2xl">3. Veré a Jesús 👁️</button>
+                <button onclick="ir('tupoder1')" class="btn bg-jaAzul/80 hover:bg-jaAzul text-white text-xl md:text-2xl">4. Tu Poder ⚡</button>
+            </div>
+            
+            <!-- Segunda columna: 5 al 8 -->
+            <div class="flex flex-col gap-2">
+                <button onclick="ir('mipastor1')" class="btn bg-jaAzul/80 hover:bg-jaAzul text-white text-xl md:text-2xl">5. Mi Pastor 🐑</button>
+                <button onclick="ir('aquien1')" class="btn bg-jaAzul/80 hover:bg-jaAzul text-white text-xl md:text-2xl">6. A Quién Iré ❤️</button>
+                <button onclick="ir('diosinc1')" class="btn bg-jaAzul/80 hover:bg-jaAzul text-white text-xl md:text-2xl">7. Dios Incomparable 🙌</button>
+                <button onclick="ir('mensajero1')" class="btn bg-jaAzul/80 hover:bg-jaAzul text-white text-xl md:text-2xl">8. Mensajero ✨</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botón flotante de pantalla completa (solo visible en el menú) -->
+    <button onclick="togglePantallaCompleta()" id="btnFullscreen" 
+            title="Pantalla Completa"
+            class="hidden fixed bottom-6 right-6 z-[100] w-14 h-14 rounded-full bg-purple-600/80 hover:bg-purple-600 text-white items-center justify-center text-2xl shadow-lg transition-all duration-300 hover:scale-110">
+        ⛶
+    </button>
+
+
+    <!-- ====================================== -->
+    <!-- CANCIÓN 1: AGNUS DEI -->
+    <!-- ====================================== -->
+
+    <div id="agnus1" class="pantalla" data-anterior="menu" data-siguiente="agnus2">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-10 texto-sombra">Agnus Dei</h2>
+        <p class="text-[clamp(1.7rem,3.5vw,2.8rem)] leading-relaxed font-lectura">
+            ¡Aleluya, aleluya! 🎉 Te alabamos, Señor, nuestro Rey. 👑<br><br>
+            ¡Aleluya, aleluya! 🎶 Te alabamos, Señor, nuestro Rey. ✨<br><br>
+            ¡Aleluya! 🙌 Santo, Santo, eres Santo, mi Salvador. ❤️<br><br>
+            Digno eres tú, 😇 digno eres tú. ✨
+        </p>
+        <div class="mt-12 flex gap-8">
+            <button onclick="ir('menu')" class="btn bg-gray-600/70 hover:bg-gray-600">🏠 Menú</button>
+            <button onclick="ir('agnus2')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">Siguiente ➡️</button>
+        </div>
+    </div>
+
+    <div id="agnus2" class="pantalla" data-anterior="agnus1" data-siguiente="agnus3">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-10 texto-sombra">Agnus Dei</h2>
+        <p class="text-[clamp(1.7rem,3.5vw,2.8rem)] leading-relaxed font-lectura">
+            Tú eres Santo, Santo, 🙏 eres Santo, mi Salvador. 🕊️<br><br>
+            Digno eres tú, digno eres tú. Amén. 🤍
+        </p>
+        <div class="mt-12 flex gap-8">
+            <button onclick="ir('agnus1')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">⬅️ Anterior</button>
+            <button onclick="ir('agnus3')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">Siguiente ➡️</button>
+        </div>
+    </div>
+
+    <div id="agnus3" class="pantalla" data-anterior="agnus2" data-siguiente="agnus4">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-10 texto-sombra">Agnus Dei</h2>
+        <p class="text-[clamp(1.7rem,3.5vw,2.8rem)] leading-relaxed font-lectura">
+            ¡Aleluya, aleluya! 🎉 Te alabamos, Señor, nuestro Rey. 👑<br><br>
+            ¡Aleluya, aleluya! 🎶 Te alabamos, Señor, nuestro Rey. ✨<br><br>
+            ¡Aleluya! 🙌 Santo, Santo, eres Santo, mi Salvador. ❤️<br><br>
+            Digno eres tú, 😇 digno eres tú. ✨
+        </p>
+        <div class="mt-12 flex gap-8">
+            <button onclick="ir('agnus2')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">⬅️ Anterior</button>
+            <button onclick="ir('agnus4')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">Siguiente ➡️</button>
+        </div>
+    </div>
+
+    <div id="agnus4" class="pantalla" data-anterior="agnus3" data-siguiente="menu">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-10 texto-sombra">Agnus Dei</h2>
+        <p class="text-[clamp(1.7rem,3.5vw,2.8rem)] leading-relaxed font-lectura">
+            Tú eres Santo, Santo, 🙏 eres Santo, mi Salvador. 🕊️<br><br>
+            Digno eres tú, digno eres tú. Amén. 🤍
+        </p>
+        <div class="mt-12 flex gap-8">
+            <button onclick="ir('agnus3')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">⬅️ Anterior</button>
+            <button onclick="ir('menu')" class="btn bg-green-600/80 hover:bg-green-600">🏠 Menú Principal</button>
+        </div>
+    </div>
+
+
+    <!-- ====================================== -->
+    <!-- CANCIÓN 2: MARANATHA -->
+    <!-- ====================================== -->
+
+    <div id="maranatha1" class="pantalla" data-anterior="menu" data-siguiente="maranatha2">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-10 texto-sombra">Maranatha 🕊️</h2>
+        <p class="text-[clamp(1.8rem,4vw,3rem)] leading-relaxed font-lectura">
+            Tú eres mi luz y mi salvación 💡<br>
+            y a ti me rendiré.<br>
+            Si a tu lado estoy, 🤝<br>
+            seguro en tus manos nada temeré. 🛡️
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('menu')" class="btn bg-gray-600/70 hover:bg-gray-600">🏠 Menú</button>
+            <button onclick="ir('maranatha2')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">Siguiente ➡️</button>
+        </div>
+    </div>
+
+    <div id="maranatha2" class="pantalla" data-anterior="maranatha1" data-siguiente="maranatha3">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-10 texto-sombra">Maranatha 🕊️</h2>
+        <p class="text-[clamp(1.8rem,4vw,3rem)] leading-relaxed font-lectura">
+            Ohhh ohhh ohhh 🎶<br>
+            Tú eres Santo oh Señor. 😇<br><br>
+            Ohhh ohhh ohhh 🎶<br>
+            Tú eres Digno de loor. 👏
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('maranatha1')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">⬅️ Anterior</button>
+            <button onclick="ir('maranatha3')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">Siguiente ➡️</button>
+        </div>
+    </div>
+
+    <div id="maranatha3" class="pantalla" data-anterior="maranatha2" data-siguiente="maranatha4">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-4 texto-sombra">Maranatha 🕊️</h2>
+        <p class="text-xl text-cyan-300 mb-6 font-bold">🎵 Coro</p>
+        <p class="text-[clamp(1.8rem,4vw,3rem)] leading-relaxed font-lectura">
+            Solo en ti confiaré 🙏<br>
+            yo nada temeré, al frente yo iré 🚶‍♂️<br>
+            pues yo sé que vivo estás ✨<br>
+            un día volverás, nos vendrás a buscar 🕊️<br>
+            y siempre reinarás. ¡Aleluya! 🎉
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('maranatha2')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">⬅️ Anterior</button>
+            <button onclick="ir('maranatha4')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">Siguiente ➡️</button>
+        </div>
+    </div>
+
+    <div id="maranatha4" class="pantalla" data-anterior="maranatha3" data-siguiente="maranatha5">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-10 texto-sombra">Maranatha 🕊️</h2>
+        <p class="text-[clamp(1.8rem,4vw,3rem)] leading-relaxed font-lectura">
+            Tú eres mi luz y mi salvación 💡<br>
+            y a ti me rendiré.<br>
+            Si a tu lado estoy, 🤝<br>
+            seguro en tus manos nada temeré. 🛡️
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('maranatha3')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">⬅️ Anterior</button>
+            <button onclick="ir('maranatha5')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">Siguiente ➡️</button>
+        </div>
+    </div>
+
+    <div id="maranatha5" class="pantalla" data-anterior="maranatha4" data-siguiente="maranatha6">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-10 texto-sombra">Maranatha 🕊️</h2>
+        <p class="text-[clamp(1.8rem,4vw,3rem)] leading-relaxed font-lectura">
+            Ohhh ohhh ohhh 🎶<br>
+            Tú eres Santo oh Señor. 😇<br><br>
+            Ohhh ohhh ohhh 🎶<br>
+            Tú eres Digno de loor. 👏
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('maranatha4')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">⬅️ Anterior</button>
+            <button onclick="ir('maranatha6')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">Siguiente ➡️</button>
+        </div>
+    </div>
+
+    <div id="maranatha6" class="pantalla" data-anterior="maranatha5" data-siguiente="maranatha7">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-4 texto-sombra">Maranatha 🕊️</h2>
+        <p class="text-xl text-cyan-300 mb-6 font-bold">🎵 Coro</p>
+        <p class="text-[clamp(1.8rem,4vw,3rem)] leading-relaxed font-lectura">
+            Solo en ti confiaré 🙏<br>
+            yo nada temeré, al frente yo iré 🚶‍♂️<br>
+            pues yo sé que vivo estás ✨<br>
+            un día volverás, nos vendrás a buscar 🕊️<br>
+            y siempre reinarás. ¡Aleluya! 🎉
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('maranatha5')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">⬅️ Anterior</button>
+            <button onclick="ir('maranatha7')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">Siguiente ➡️</button>
+        </div>
+    </div>
+
+    <div id="maranatha7" class="pantalla" data-anterior="maranatha6" data-siguiente="menu">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-4 texto-sombra">Maranatha 🕊️</h2>
+        <p class="text-xl text-cyan-300 mb-6 font-bold">🎵 Puente</p>
+        <p class="text-[clamp(1.8rem,4vw,3rem)] leading-relaxed font-lectura">
+            Ven Jesús, ven Jesús 🙌<br>
+            Maranatha ahora ven Señor Jesús ⚡<br><br>
+            Ven Jesús, ven Jesús 🙌<br>
+            Maranatha ahora ven Señor Jesús ⚡
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('maranatha6')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">⬅️ Anterior</button>
+            <button onclick="ir('menu')" class="btn bg-green-600/80 hover:bg-green-600">🏠 Menú Principal</button>
+        </div>
+    </div>
+
+
+    <!-- ====================================== -->
+    <!-- CANCIÓN 3: VERÉ A JESÚS -->
+    <!-- ====================================== -->
+
+    <div id="vere1" class="pantalla" data-anterior="menu" data-siguiente="vere2">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-10 texto-sombra">Veré a Jesús 👁️</h2>
+        <p class="text-[clamp(1.8rem,4vw,3rem)] leading-relaxed font-lectura">
+            Aguardo el día en que veré, ⏳<br>
+            Una pequeña luz brillar. 💡<br>
+            Y esa luz aumentara. 📈<br>
+            Millares de ángeles serán. 👼
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('menu')" class="btn bg-gray-600/70 hover:bg-gray-600">🏠 Menú</button>
+            <button onclick="ir('vere2')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">Siguiente ➡️</button>
+        </div>
+    </div>
+
+    <div id="vere2" class="pantalla" data-anterior="vere1" data-siguiente="vere3">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-4 texto-sombra">Veré a Jesús 👁️</h2>
+        <p class="text-xl text-cyan-300 mb-6 font-bold">🎵 Coro</p>
+        <p class="text-[clamp(1.8rem,4vw,3rem)] leading-relaxed font-lectura">
+            Yo creo sí, que Él volverá. ✝️<br>
+            Y que muy pronto yo iré. ⏳<br>
+            A un nuevo cielo, un nuevo hogar. 🏡<br>
+            Por siempre estaré, feliz yo viviré. 😊<br>
+            Veré a Jesús. 👁️
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('vere1')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">⬅️ Anterior</button>
+            <button onclick="ir('vere3')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">Siguiente ➡️</button>
+        </div>
+    </div>
+
+    <div id="vere3" class="pantalla" data-anterior="vere2" data-siguiente="vere4">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-10 texto-sombra">Veré a Jesús 👁️</h2>
+        <p class="text-[clamp(1.8rem,4vw,3rem)] leading-relaxed font-lectura">
+            La voz de Dios retumbará 📢<br>
+            Con gloria en las nubes surgirá ☁️✨<br>
+            Generaciones se unirán. 👨‍👩‍👧‍👦<br>
+            Y para siempre cantarán. 🎶
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('vere2')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">⬅️ Anterior</button>
+            <button onclick="ir('vere4')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">Siguiente ➡️</button>
+        </div>
+    </div>
+
+    <div id="vere4" class="pantalla" data-anterior="vere3" data-siguiente="vere5">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-4 texto-sombra">Veré a Jesús 👁️</h2>
+        <p class="text-xl text-cyan-300 mb-6 font-bold">🎵 Coro</p>
+        <p class="text-[clamp(1.8rem,4vw,3rem)] leading-relaxed font-lectura">
+            Yo creo sí, que Él volverá. ✝️<br>
+            Y que muy pronto yo iré. ⏳<br>
+            A un nuevo cielo, un nuevo hogar. 🏡<br>
+            Por siempre estaré, feliz yo viviré. 😊<br>
+            Veré a Jesús. 👁️
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('vere3')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">⬅️ Anterior</button>
+            <button onclick="ir('vere5')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">Siguiente ➡️</button>
+        </div>
+    </div>
+
+    <div id="vere5" class="pantalla" data-anterior="vere4" data-siguiente="vere6">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-10 texto-sombra">Veré a Jesús 👁️</h2>
+        <p class="text-[clamp(1.8rem,4vw,3rem)] leading-relaxed font-lectura">
+            Yo creo sí, que Él volverá. ✝️<br>
+            Y que muy pronto yo iré. ⏳<br>
+            A un nuevo cielo, un nuevo hogar. 🏡<br>
+            Por siempre estaré, feliz yo viviré. 😊
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('vere4')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">⬅️ Anterior</button>
+            <button onclick="ir('vere6')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">Siguiente ➡️</button>
+        </div>
+    </div>
+
+    <div id="vere6" class="pantalla" data-anterior="vere5" data-siguiente="menu">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-10 texto-sombra">Veré a Jesús 👁️</h2>
+        <p class="text-[clamp(1.8rem,4vw,3rem)] leading-relaxed font-lectura">
+            Yo creo sí, que Él volverá. ✝️<br>
+            Y que muy pronto yo iré. ⏳<br>
+            A un nuevo cielo, un nuevo hogar. 🏡<br>
+            Por siempre estaré, feliz yo viviré. 😊<br>
+            Veré a Jesús. 👁️🤍
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('vere5')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">⬅️ Anterior</button>
+            <button onclick="ir('menu')" class="btn bg-green-600/80 hover:bg-green-600">🏠 Menú Principal</button>
+        </div>
+    </div>
+
+
+    <!-- ====================================== -->
+    <!-- CANCIÓN 4: TU PODER -->
+    <!-- ====================================== -->
+
+    <div id="tupoder1" class="pantalla" data-anterior="menu" data-siguiente="tupoder2">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-10 texto-sombra">Tu Poder ⚡</h2>
+        <p class="text-[clamp(1.8rem,4vw,3rem)] leading-relaxed font-lectura">
+            Queremos hoy pedir, Señor, 🙏<br>
+            tu poder, tu poder. ✨<br><br>
+            No hay otra forma de avanzar, 🚶‍♂️<br>
+            tu poder, tu poder. ⚡
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('menu')" class="btn bg-gray-600/70 hover:bg-gray-600">🏠 Menú</button>
+            <button onclick="ir('tupoder2')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">Siguiente ➡️</button>
+        </div>
+    </div>
+
+    <div id="tupoder2" class="pantalla" data-anterior="tupoder1" data-siguiente="tupoder3">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-4 texto-sombra">Tu Poder ⚡</h2>
+        <p class="text-xl text-cyan-300 mb-6 font-bold">🎵 Coro</p>
+        <p class="text-[clamp(1.8rem,4vw,3rem)] leading-relaxed font-lectura">
+            Con tu poder nos haremos fuertes, 💪<br>
+            con tu poder, vamos a vencer. 🏆<br><br>
+            En tu poder está nuestra esperanza, ⚓<br>
+            envía tu poder. 🙌
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('tupoder1')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">⬅️ Anterior</button>
+            <button onclick="ir('tupoder3')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">Siguiente ➡️</button>
+        </div>
+    </div>
+
+    <div id="tupoder3" class="pantalla" data-anterior="tupoder2" data-siguiente="tupoder4">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-10 texto-sombra">Tu Poder ⚡</h2>
+        <p class="text-[clamp(1.8rem,4vw,3rem)] leading-relaxed font-lectura">
+            Estamos tan cansados ya, 😔<br>
+            oh, Señor, danos poder. 🙏<br><br>
+            Renueva nuestro corazón 💓<br>
+            con poder, danos poder. ⚡
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('tupoder2')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">⬅️ Anterior</button>
+            <button onclick="ir('tupoder4')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">Siguiente ➡️</button>
+        </div>
+    </div>
+
+    <div id="tupoder4" class="pantalla" data-anterior="tupoder3" data-siguiente="menu">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-4 texto-sombra">Tu Poder ⚡</h2>
+        <p class="text-xl text-cyan-300 mb-6 font-bold">🎵 Coro</p>
+        <p class="text-[clamp(1.8rem,4vw,3rem)] leading-relaxed font-lectura">
+            Con tu poder nos haremos fuertes, 💪<br>
+            con tu poder, vamos a vencer. 🏆<br><br>
+            En tu poder está nuestra esperanza, ⚓<br>
+            envía tu poder. 🙌🤍
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('tupoder3')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">⬅️ Anterior</button>
+            <button onclick="ir('menu')" class="btn bg-green-600/80 hover:bg-green-600">🏠 Menú Principal</button>
+        </div>
+    </div>
+
+
+    <!-- ====================================== -->
+    <!-- CANCIÓN 5: MI PASTOR (6 DIAPOSITIVAS) -->
+    <!-- ====================================== -->
+    
+    <div id="mipastor1" class="pantalla" data-anterior="menu" data-siguiente="mipastor2">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-10 texto-sombra">Mi Pastor 🐑</h2>
+        <p class="text-[clamp(1.8rem,4vw,3rem)] leading-relaxed font-lectura">
+            Contigo ando muy seguro 🛡️<br>
+            El mal alejas con amor ❤️<br>
+            Soy una oveja y procuro 🐑<br>
+            Los cuidados del Pastor 🌿
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('menu')" class="btn bg-gray-600/70 hover:bg-gray-600">🏠 Menú</button>
+            <button onclick="ir('mipastor2')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">Siguiente ➡️</button>
+        </div>
+    </div>
+
+    <div id="mipastor2" class="pantalla" data-anterior="mipastor1" data-siguiente="mipastor3">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-4 texto-sombra">Mi Pastor 🐑</h2>
+        <p class="text-xl text-cyan-300 mb-6 font-bold">🎵 Puente</p>
+        <p class="text-[clamp(1.7rem,3.5vw,2.7rem)] leading-relaxed font-lectura">
+            Y si yo ando en el valle de sombra y de muerte ⛰️<br>
+            Por el valle de sombra de muerte, no temeré ningún mal 🛡️<br><br>
+            Pues sé que donde yo esté tu bondad me seguirá ✨<br>
+            Donde esté tu bondad me seguirá, tu bendición me darás 🙏
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('mipastor1')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">⬅️ Anterior</button>
+            <button onclick="ir('mipastor3')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">Siguiente ➡️</button>
+        </div>
+    </div>
+
+    <div id="mipastor3" class="pantalla" data-anterior="mipastor2" data-siguiente="mipastor4">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-4 texto-sombra">Mi Pastor 🐑</h2>
+        <p class="text-xl text-cyan-300 mb-6 font-bold">🎵 Coro</p>
+        <p class="text-[clamp(1.8rem,4vw,3rem)] leading-relaxed font-lectura">
+            Mi Pastor me lleva a lugares altos 🏔️<br>
+            Agua limpia beberé 💧<br>
+            Y en pastos verdes descansaré 🌾<br>
+            La jornada seguiré, con Él 🚶‍♂️
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('mipastor2')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">⬅️ Anterior</button>
+            <button onclick="ir('mipastor4')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">🔁 Repetir ➡️</button>
+        </div>
+    </div>
+
+    <div id="mipastor4" class="pantalla" data-anterior="mipastor3" data-siguiente="mipastor5">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-10 texto-sombra">Mi Pastor 🐑</h2>
+        <p class="text-[clamp(1.8rem,4vw,3rem)] leading-relaxed font-lectura">
+            Contigo ando muy seguro 🛡️<br>
+            El mal alejas con amor ❤️<br>
+            Soy una oveja y procuro 🐑<br>
+            Los cuidados del Pastor 🌿
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('mipastor3')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">⬅️ Anterior</button>
+            <button onclick="ir('mipastor5')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">Siguiente ➡️</button>
+        </div>
+    </div>
+
+    <div id="mipastor5" class="pantalla" data-anterior="mipastor4" data-siguiente="mipastor6">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-4 texto-sombra">Mi Pastor 🐑</h2>
+        <p class="text-xl text-cyan-300 mb-6 font-bold">🎵 Puente</p>
+        <p class="text-[clamp(1.7rem,3.5vw,2.7rem)] leading-relaxed font-lectura">
+            Y si yo ando en el valle de sombra y de muerte ⛰️<br>
+            Por el valle de sombra de muerte, no temeré ningún mal 🛡️<br><br>
+            Pues sé que donde yo esté tu bondad me seguirá ✨<br>
+            Donde esté tu bondad me seguirá, tu bendición me darás 🙏
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('mipastor4')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">⬅️ Anterior</button>
+            <button onclick="ir('mipastor6')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">Siguiente ➡️</button>
+        </div>
+    </div>
+
+    <div id="mipastor6" class="pantalla" data-anterior="mipastor5" data-siguiente="menu">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-4 texto-sombra">Mi Pastor 🐑</h2>
+        <p class="text-xl text-cyan-300 mb-6 font-bold">🎵 Coro</p>
+        <p class="text-[clamp(1.8rem,4vw,3rem)] leading-relaxed font-lectura">
+            Mi Pastor me lleva a lugares altos 🏔️<br>
+            Agua limpia beberé 💧<br>
+            Y en pastos verdes descansaré 🌾<br>
+            La jornada seguiré, con Él 🚶‍♂️🤍
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('mipastor5')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">⬅️ Anterior</button>
+            <button onclick="ir('menu')" class="btn bg-green-600/80 hover:bg-green-600">🏠 Menú Principal</button>
+        </div>
+    </div>
+
+
+    <!-- ====================================== -->
+    <!-- CANCIÓN 6: A QUIÉN IRÉ -->
+    <!-- ====================================== -->
+
+    <div id="aquien1" class="pantalla" data-anterior="menu" data-siguiente="aquien2">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-10 texto-sombra">A Quién Iré ❤️</h2>
+        <p class="text-[clamp(1.8rem,4vw,3rem)] leading-relaxed font-lectura">
+            ¿A quién iré en necesidad? 🤔<br>
+            ¿A quién iré en busca de paz? 🕊️<br>
+            y ¿Quién podrá mi vida saciar de verdad? 💧
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('menu')" class="btn bg-gray-600/70 hover:bg-gray-600">🏠 Menú</button>
+            <button onclick="ir('aquien2')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">Siguiente ➡️</button>
+        </div>
+    </div>
+
+    <div id="aquien2" class="pantalla" data-anterior="aquien1" data-siguiente="aquien3">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-10 texto-sombra">A Quién Iré ❤️</h2>
+        <p class="text-[clamp(1.8rem,4vw,3rem)] leading-relaxed font-lectura">
+            ¿Quién más tendrá de mí compasión? 🤗<br>
+            y entenderá mi corazón? 💓<br>
+            ¿Quién cambiará mi eternidad si no Tú... Jesús? ✝️
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('aquien1')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">⬅️ Anterior</button>
+            <button onclick="ir('aquien3')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">Siguiente ➡️</button>
+        </div>
+    </div>
+
+    <div id="aquien3" class="pantalla" data-anterior="aquien2" data-siguiente="aquien4">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-4 texto-sombra">A Quién Iré ❤️</h2>
+        <p class="text-xl text-cyan-300 mb-6 font-bold">🎵 Coro</p>
+        <p class="text-[clamp(1.8rem,4vw,3rem)] leading-relaxed font-lectura">
+            Cristo, ¿a dónde más podría ir? 🛤️<br>
+            Cristo, ¿Qué otro lugar puede existir? 🌍
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('aquien2')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">⬅️ Anterior</button>
+            <button onclick="ir('aquien4')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">Siguiente ➡️</button>
+        </div>
+    </div>
+
+    <div id="aquien4" class="pantalla" data-anterior="aquien3" data-siguiente="aquien6">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-4 texto-sombra">A Quién Iré ❤️</h2>
+        <p class="text-xl text-cyan-300 mb-6 font-bold">🎵 Coro</p>
+        <p class="text-[clamp(1.8rem,4vw,3rem)] leading-relaxed font-lectura">
+            Sólo Tú tienes palabras de Amor, 💖<br>
+            camino al Padre y verdad eres Tú. ✝️<br>
+            Cristo, ¿Adónde más podría ir? 🛤️
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('aquien3')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">⬅️ Anterior</button>
+            <button onclick="ir('aquien6')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">🔁 Repetir ➡️</button>
+        </div>
+    </div>
+
+    <div id="aquien6" class="pantalla" data-anterior="aquien4" data-siguiente="aquien7">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-10 texto-sombra">A Quién Iré ❤️</h2>
+        <p class="text-[clamp(1.8rem,4vw,3rem)] leading-relaxed font-lectura">
+            ¿A quién iré en necesidad? 🤔<br>
+            ¿A quién iré en busca de paz? 🕊️<br>
+            y ¿Quién podrá mi vida saciar de verdad? 💧
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('aquien4')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">⬅️ Anterior</button>
+            <button onclick="ir('aquien7')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">Siguiente ➡️</button>
+        </div>
+    </div>
+
+    <div id="aquien7" class="pantalla" data-anterior="aquien6" data-siguiente="aquien8">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-10 texto-sombra">A Quién Iré ❤️</h2>
+        <p class="text-[clamp(1.8rem,4vw,3rem)] leading-relaxed font-lectura">
+            ¿Quién más tendrá de mí compasión? 🤗<br>
+            y entenderá mi corazón? 💓<br>
+            ¿Quién cambiará mi eternidad si no Tú... Jesús? ✝️
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('aquien6')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">⬅️ Anterior</button>
+            <button onclick="ir('aquien8')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">Siguiente ➡️</button>
+        </div>
+    </div>
+
+    <div id="aquien8" class="pantalla" data-anterior="aquien7" data-siguiente="aquien9">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-4 texto-sombra">A Quién Iré ❤️</h2>
+        <p class="text-xl text-cyan-300 mb-6 font-bold">🎵 Coro</p>
+        <p class="text-[clamp(1.8rem,4vw,3rem)] leading-relaxed font-lectura">
+            Cristo, ¿a dónde más podría ir? 🛤️<br>
+            Cristo, ¿Qué otro lugar puede existir? 🌍
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('aquien7')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">⬅️ Anterior</button>
+            <button onclick="ir('aquien9')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">Siguiente ➡️</button>
+        </div>
+    </div>
+
+    <div id="aquien9" class="pantalla" data-anterior="aquien8" data-siguiente="aquien10">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-4 texto-sombra">A Quién Iré ❤️</h2>
+        <p class="text-xl text-cyan-300 mb-6 font-bold">🎵 Coro</p>
+        <p class="text-[clamp(1.8rem,4vw,3rem)] leading-relaxed font-lectura">
+            Sólo Tú tienes palabras de Amor, 💖<br>
+            camino al Padre y verdad eres Tú. ✝️<br>
+            Cristo, ¿Adónde más podría ir? 🛤️
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('aquien8')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">⬅️ Anterior</button>
+            <button onclick="ir('aquien10')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">Siguiente ➡️</button>
+        </div>
+    </div>
+
+    <div id="aquien10" class="pantalla" data-anterior="aquien9" data-siguiente="menu">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-4 texto-sombra">A Quién Iré ❤️</h2>
+        <p class="text-xl text-cyan-300 mb-6 font-bold">🎵 Coro</p>
+        <p class="text-[clamp(1.8rem,4vw,3rem)] leading-relaxed font-lectura">
+            Cristo, ¿Adónde más podría ir? 🛤️🤍
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('aquien9')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">⬅️ Anterior</button>
+            <button onclick="ir('menu')" class="btn bg-green-600/80 hover:bg-green-600">🏠 Menú Principal</button>
+        </div>
+    </div>
+
+
+    <!-- ====================================== -->
+    <!-- CANCIÓN 7: DIOS INCOMPARABLE (6 DIAPOSITIVAS) -->
+    <!-- ====================================== -->
+    
+    <!-- Dios Incomparable - 1ª VEZ: Estrofa -->
+    <div id="diosinc1" class="pantalla" data-anterior="menu" data-siguiente="diosinc2">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-10 texto-sombra">Dios Incomparable 🙌</h2>
+        <p class="text-[clamp(1.7rem,3.5vw,2.7rem)] leading-relaxed font-lectura">
+            Dios de mi corazón, en ti encontré mi salvación 💖<br>
+            Tu gloria y majestad quiero siempre contemplar ✨<br><br>
+            Tú eres mi adoración y mi eterna canción 🎶<br>
+            Todo mi interior es cautivado por tu amor ❤️
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('menu')" class="btn bg-gray-600/70 hover:bg-gray-600">🏠 Menú</button>
+            <button onclick="ir('diosinc2')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">Siguiente ➡️</button>
+        </div>
+    </div>
+
+    <!-- Dios Incomparable - 1ª VEZ: Coro -->
+    <div id="diosinc2" class="pantalla" data-anterior="diosinc1" data-siguiente="diosinc3">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-4 texto-sombra">Dios Incomparable 🙌</h2>
+        <p class="text-xl text-cyan-300 mb-6 font-bold">🎵 Coro</p>
+        <p class="text-[clamp(1.8rem,4vw,3rem)] leading-relaxed font-lectura">
+            Eres Dios eterno, solo tú eres bueno 👑<br>
+            Dios incomparable eres tú ✨<br>
+            Nunca me separaré de tu gran amor 🤝<br>
+            Eres mi señor mi salvador ✝️
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('diosinc1')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">⬅️ Anterior</button>
+            <button onclick="ir('diosinc3')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">🔁 Repetir ➡️</button>
+        </div>
+    </div>
+
+    <!-- Dios Incomparable - 2ª VEZ: Estrofa -->
+    <div id="diosinc3" class="pantalla" data-anterior="diosinc2" data-siguiente="diosinc4">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-10 texto-sombra">Dios Incomparable 🙌</h2>
+        <p class="text-[clamp(1.7rem,3.5vw,2.7rem)] leading-relaxed font-lectura">
+            Dios de mi corazón, en ti encontré mi salvación 💖<br>
+            Tu gloria y majestad quiero siempre contemplar ✨<br><br>
+            Tú eres mi adoración y mi eterna canción 🎶<br>
+            Todo mi interior es cautivado por tu amor ❤️
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('diosinc2')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">⬅️ Anterior</button>
+            <button onclick="ir('diosinc4')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">Siguiente ➡️</button>
+        </div>
+    </div>
+
+    <!-- Dios Incomparable - 2ª VEZ: Coro -->
+    <div id="diosinc4" class="pantalla" data-anterior="diosinc3" data-siguiente="diosinc5">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-4 texto-sombra">Dios Incomparable 🙌</h2>
+        <p class="text-xl text-cyan-300 mb-6 font-bold">🎵 Coro</p>
+        <p class="text-[clamp(1.8rem,4vw,3rem)] leading-relaxed font-lectura">
+            Eres Dios eterno, solo tú eres bueno 👑<br>
+            Dios incomparable eres tú ✨<br>
+            Nunca me separaré de tu gran amor 🤝<br>
+            Eres mi señor mi salvador ✝️
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('diosinc3')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">⬅️ Anterior</button>
+            <button onclick="ir('diosinc5')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">Siguiente ➡️</button>
+        </div>
+    </div>
+
+    <!-- Dios Incomparable - Puente (3 ALELUYAS) -->
+    <div id="diosinc5" class="pantalla" data-anterior="diosinc4" data-siguiente="diosinc6">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-4 texto-sombra">Dios Incomparable 🙌</h2>
+        <p class="text-xl text-cyan-300 mb-6 font-bold">🎵 Puente</p>
+        <p class="text-[clamp(2.2rem,4.5vw,3.5rem)] leading-relaxed font-lectura font-bold text-jaAmarillo">
+            Aleluya 🎉 Aleluya 🙌 Aleluya ✨
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('diosinc4')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">⬅️ Anterior</button>
+            <button onclick="ir('diosinc6')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">Siguiente ➡️</button>
+        </div>
+    </div>
+
+    <!-- Dios Incomparable - Coro Final -->
+    <div id="diosinc6" class="pantalla" data-anterior="diosinc5" data-siguiente="menu">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-4 texto-sombra">Dios Incomparable 🙌</h2>
+        <p class="text-xl text-cyan-300 mb-6 font-bold">🎵 Coro Final</p>
+        <p class="text-[clamp(1.8rem,4vw,3rem)] leading-relaxed font-lectura">
+            Eres Dios eterno, solo tú eres bueno 👑<br>
+            Dios incomparable eres tú ✨<br>
+            Nunca me separaré de tu gran amor 🤝<br>
+            Eres mi señor mi salvador ✝️🤍
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('diosinc5')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">⬅️ Anterior</button>
+            <button onclick="ir('menu')" class="btn bg-green-600/80 hover:bg-green-600">🏠 Menú Principal</button>
+        </div>
+    </div>
+
+
+    <!-- ====================================== -->
+    <!-- CANCIÓN 8: MENSAJERO -->
+    <!-- ====================================== -->
+
+    <div id="mensajero1" class="pantalla" data-anterior="menu" data-siguiente="mensajero2">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-12 texto-sombra">Mensajero ✨</h2>
+        <p class="text-[clamp(1.8rem,4vw,3rem)] leading-relaxed font-lectura">
+            Hay días que ni sé decir, 🤷‍♂️<br>
+            no tengo motivación,<br>
+            y siento en mí dolor sin fin, 💔<br>
+            no sé cuál es la razón.
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('menu')" class="btn bg-gray-600/70 hover:bg-gray-600">🏠 Menú</button>
+            <button onclick="ir('mensajero2')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">Siguiente ➡️</button>
+        </div>
+    </div>
+
+    <div id="mensajero2" class="pantalla" data-anterior="mensajero1" data-siguiente="mensajero3">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-12 texto-sombra">Mensajero ✨</h2>
+        <p class="text-[clamp(1.8rem,4vw,3rem)] leading-relaxed font-lectura">
+            Pero a Jesús quiero aun buscar, 🕊️<br>
+            y mis rodillas doblar y orar,<br>
+            delante de Él puedo así llorar 😢<br>
+            y abrir mi corazón. ❤️
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('mensajero1')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">⬅️ Anterior</button>
+            <button onclick="ir('mensajero3')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">Siguiente ➡️</button>
+        </div>
+    </div>
+
+    <div id="mensajero3" class="pantalla" data-anterior="mensajero2" data-siguiente="mensajero4">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-12 texto-sombra">Mensajero ✨</h2>
+        <p class="text-[clamp(1.8rem,4vw,3rem)] leading-relaxed font-lectura">
+            Ya puedo ver el sol brillar, ☀️<br>
+            siento una brisa de paz. 🍃<br>
+            Y sin dudar voy a cantar, 🎤<br>
+            de mi Jesús quiero hablar. 🗣️
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('mensajero2')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">⬅️ Anterior</button>
+            <button onclick="ir('mensajero4')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">Siguiente ➡️</button>
+        </div>
+    </div>
+
+    <div id="mensajero4" class="pantalla" data-anterior="mensajero3" data-siguiente="menu">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-12 texto-sombra">Mensajero ✨</h2>
+        <p class="text-[clamp(1.8rem,4vw,3rem)] leading-relaxed font-lectura">
+            Soy mensajero del rey Señor, 📢<br>
+            soy un testigo de su amor. 💛<br>
+            Al mundo entero proclamaré 🌍<br>
+            que Jesús volverá otra vez. ⏳
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('mensajero3')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">⬅️ Anterior</button>
+            <button onclick="ir('menu')" class="btn bg-green-600/80 hover:bg-green-600">🏠 Menú Principal</button>
+        </div>
+    </div>
+
+
+    <!-- ====================================== -->
+    <!-- SCRIPT DE NAVEGACIÓN (TECLADO + BOTONES) -->
+    <!-- ====================================== -->
+    <script>
+        function ir(id) {
+            document.querySelectorAll('.pantalla').forEach(p => p.classList.remove('activa'));
+            document.getElementById(id).classList.add('activa');
+            window.scrollTo(0,0);
+            actualizarBotonFullscreen();
+        }
+
+        function actualizarBotonFullscreen() {
+            const btn = document.getElementById('btnFullscreen');
+            if (!btn) return;
+            const activa = document.querySelector('.pantalla.activa');
+            if (activa && activa.id === 'menu') {
+                btn.classList.remove('hidden');
+                btn.classList.add('flex');
+            } else {
+                btn.classList.add('hidden');
+                btn.classList.remove('flex');
+            }
+        }
+
+        function togglePantallaCompleta() {
+            const btn = document.getElementById('btnFullscreen');
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().then(() => {
+                    if (btn) btn.innerHTML = '✕';
+                }).catch(err => {
+                    console.log('Error al entrar en pantalla completa:', err);
+                });
+            } else {
+                document.exitFullscreen().then(() => {
+                    if (btn) btn.innerHTML = '⛶';
+                });
+            }
+        }
+
+        document.addEventListener('fullscreenchange', () => {
+            const btn = document.getElementById('btnFullscreen');
+            if (btn) {
+                btn.innerHTML = document.fullscreenElement ? '✕' : '⛶';
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                if (document.fullscreenElement) {
+                    document.exitFullscreen();
+                    return;
+                }
+                ir('menu');
+                return;
+            }
+
+            let activa = document.querySelector('.pantalla.activa');
+            if (!activa) return;
+
+            if (e.key === 'ArrowLeft') {
+                let ant = activa.getAttribute('data-anterior');
+                if (ant) ir(ant);
+            }
+            if (e.key === 'ArrowRight') {
+                let sig = activa.getAttribute('data-siguiente');
+                if (sig) ir(sig);
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', actualizarBotonFullscreen);
+    </script>
+
+</body>
+</html>
