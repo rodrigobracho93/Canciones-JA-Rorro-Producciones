@@ -769,16 +769,26 @@
         </div>
     </div>
 
-    <div id="mensajero4" class="pantalla" data-anterior="mensajero3" data-siguiente="menu">
+    <div id="mensajero4" class="pantalla" data-anterior="mensajero3" data-siguiente="mensajero5">
         <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-12 texto-sombra">Mensajero ✨</h2>
         <p class="text-[clamp(1.8rem,4vw,3rem)] leading-relaxed font-lectura">
             Soy mensajero del rey Señor, 📢<br>
             soy un testigo de su amor. 💛<br>
-            Al mundo entero proclamaré 🌍<br>
-            que Jesús volverá otra vez. ⏳
+            Al mundo entero proclamaré 🌍
         </p>
         <div class="mt-16 flex gap-8">
             <button onclick="ir('mensajero3')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">⬅️ Anterior</button>
+            <button onclick="ir('mensajero5')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">Siguiente ➡️</button>
+        </div>
+    </div>
+
+    <div id="mensajero5" class="pantalla" data-anterior="mensajero4" data-siguiente="menu">
+        <h2 class="text-5xl font-elegante font-bold text-jaAmarillo mb-12 texto-sombra">Mensajero ✨</h2>
+        <p class="text-[clamp(1.8rem,4vw,3rem)] leading-relaxed font-lectura">
+            que Jesús volverá otra vez. ⏳
+        </p>
+        <div class="mt-16 flex gap-8">
+            <button onclick="ir('mensajero4')" class="btn bg-jaAmarillo/90 hover:bg-jaAmarillo text-oscuro">⬅️ Anterior</button>
             <button onclick="ir('menu')" class="btn bg-green-600/80 hover:bg-green-600">🏠 Menú Principal</button>
         </div>
     </div>
