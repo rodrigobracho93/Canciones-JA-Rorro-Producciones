@@ -28,7 +28,7 @@
     <style type="text/tailwindcss">
         @layer utilities {
             .texto-sombra { text-shadow: 2px 2px 4px rgba(0,0,0,0.8); }
-            .pantalla { @apply w-screen h-screen flex-col items-center justify-center text-center text-texto hidden; }
+            .pantalla { @apply min-h-[100dvh] w-full flex-col items-center text-center text-texto hidden overflow-y-auto px-4 py-8 pt-28 sm:pt-36 justify-start sm:justify-center; }
             .activa { @apply flex; }
             .btn { @apply px-6 py-3 m-2 rounded-lg font-elegante font-bold transition-all duration-300 hover:scale-105; }
         }
@@ -37,21 +37,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
 </head>
-<body class="bg-gradient-to-br from-oscuro to-suave min-h-screen overflow-hidden">
+<body class="bg-gradient-to-br from-oscuro to-suave min-h-[100dvh] overflow-x-hidden">
 
     <!-- Barra superior: Logos a la izquierda y texto a la derecha -->
-    <div class="absolute top-0 left-0 w-full flex justify-between items-center p-6 z-50">
+    <div class="absolute top-0 left-0 w-full flex flex-col sm:flex-row justify-between items-center p-3 sm:p-6 gap-2 sm:gap-0 z-50">
         <!-- Contenedor de ambos logos -->
-        <div class="flex items-center gap-4">
+        <div class="flex items-center gap-2 sm:gap-4">
             <img src="images/ja-logo.png" 
                  alt="Logo JA" 
-                 class="w-24 h-auto">
+                 class="w-14 sm:w-24 h-auto">
             <img src="images/conquistadores-logo.png" 
                  alt="Logo Conquistadores" 
-                 class="w-16 h-auto">
+                 class="w-10 sm:w-16 h-auto">
         </div>
-             
-        <span class="text-jaAmarillo text-2xl font-elegante font-bold texto-sombra">IASD Ypané 2026</span>
+              
+        <span class="text-jaAmarillo text-base sm:text-2xl font-elegante font-bold texto-sombra text-center sm:text-right">IASD Ypané 2026</span>
     </div>
 
 
